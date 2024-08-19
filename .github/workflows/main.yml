@@ -1,0 +1,25 @@
+name: "CI"
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "feat/*"
+
+jobs:
+  tests:
+    name: "Integration testing"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Set up environment"
+        env:
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: $
+          POSTGRES_HOST: postgres
+          POSTGRES_PORT: 5432
+          POSTGRES_DB: postgres
+          POSTGRES_TEST_DB: test_db
+        run: docker compose -f docker-compose.ci.yml up --build --wait
+      - name: "Run tests"
+        run: docker exec -t peaks-container-1 bash -c "pytest -v"
