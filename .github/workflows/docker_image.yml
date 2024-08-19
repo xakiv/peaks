@@ -24,4 +24,4 @@ jobs:
           POSTGRES_PORT: 5432
           POSTGRES_DB: postgres
           POSTGRES_TEST_DB: test_db
-        run: docker compose -f docker-compose.ci.yml up --build push
+        run: docker compose -f docker-compose.ci.yml push
