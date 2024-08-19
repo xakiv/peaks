@@ -1,9 +1,7 @@
-name: "CI"
+name: "Run tests on features push"
 on:
-  pull_request:
   push:
     branches:
-      - main
       - "feat/*"
 
 jobs:
@@ -15,7 +13,7 @@ jobs:
       - name: "Set up environment"
         env:
           POSTGRES_USERNAME: postgres
-          POSTGRES_PASSWORD: $
+          POSTGRES_PASSWORD: postgres
           POSTGRES_HOST: postgres
           POSTGRES_PORT: 5432
           POSTGRES_DB: postgres

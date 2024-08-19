@@ -1,5 +1,5 @@
 FROM python:3.10.12-bullseye
-
+LABEL name="peaksapp"
 WORKDIR /code
 COPY ./requirements /code/requirements
 RUN pip install --no-cache-dir --upgrade pip
