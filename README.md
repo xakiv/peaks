@@ -24,6 +24,14 @@ cp envsampl .env
 docker-compose up --build
 ```
 
+# API documentation
+The APIs services are described and available at [this endpoint](http://127.0.0.1:8000/docs)  
+when docker services are running
+```commandline
+docker-compose up -d
+```
+
+
 # Tests and coverage  
 
 Run tests when docker services are running  
