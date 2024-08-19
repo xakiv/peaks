@@ -1,6 +1,7 @@
 services:
   postgres:
     build: ./postgres
+    image: xakivikax/peaksdb
     restart: on-failure:3
     ports:
       - 5555:5432
@@ -18,6 +19,7 @@ services:
 
   backend:
     build: ./app
+    image: xakivikax/peaks
     restart: no
     stdin_open: true
     tty: true
