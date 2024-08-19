@@ -22,15 +22,15 @@ jobs:
         id: build-push-api
         uses: docker/build-push-action@v3
         with:
-          context: .
-          file: app/Dockerfile
+          context: ./app
+          file: Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/peaks:latest
       - name: Build & push peaks db
         id: build-push-db
         uses: docker/build-push-action@v3
         with:
-          context: .
-          file: postgres/Dockerfile
+          context: ./postgres
+          file: Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/peaksdb:latest
