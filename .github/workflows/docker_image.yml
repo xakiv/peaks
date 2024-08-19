@@ -23,7 +23,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./app
-          file: Dockerfile
+          file: app/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/peaks:latest
       - name: Build & push peaks db
@@ -31,6 +31,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./postgres
-          file: Dockerfile
+          file: postgres/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/peaksdb:latest
