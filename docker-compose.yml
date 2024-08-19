@@ -1,0 +1,26 @@
+services:
+  postgres:
+    build: ./postgres
+    restart: on-failure:3
+    env_file: ".env"
+    ports:
+      - 5555:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  backend:
+    build: ./app
+    restart: on-failure:3
+    env_file: ".env"
+    stdin_open: true
+    tty: true
+    ports:
+      - 8000:8000
+    command: |
+      bash -c "/code/app/entrypoint/02-start.sh"
+    container_name: peaks-container-1
+    volumes:
+      - ./app:/code/app
+
+volumes:
+  postgres_data:
