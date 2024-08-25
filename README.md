@@ -21,14 +21,14 @@ cd peaks
 # Secrets are stored in a `.env` file that you need to create and keep out of the vcs repo
 cp envsample .env
 
-docker-compose up --build
+docker compose up --build
 ```
 
 # API documentation
 The APIs services are described and available at [this endpoint](http://127.0.0.1:8000/docs)  
 when docker services are running
 ```commandline
-docker-compose up -d
+docker compose up -d
 ```
 
 
@@ -36,7 +36,9 @@ docker-compose up -d
 
 Run tests when docker services are running  
 ```commandline
-docker-compose up -d
+docker compose up -d
 
 docker exec -it peaks-container-1 bash -c "coverage run --module pytest -v && coverage report --show-missing"
+
+docker compose stop
 ```
