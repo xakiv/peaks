@@ -19,7 +19,7 @@ git pull https://github.com/xakiv/peaks peaks
 cd peaks
 
 # Secrets are stored in a `.env` file that you need to create and keep out of the vcs repo
-cp envsampl .env
+cp envsample .env
 
 docker-compose up --build
 ```
